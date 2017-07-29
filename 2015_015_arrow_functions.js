@@ -75,8 +75,6 @@ es_old(function () {
 
 });
 
-
-
 // Lexical `this`
 // --------------
 
