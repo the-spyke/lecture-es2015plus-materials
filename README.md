@@ -15,7 +15,7 @@ Materials for the lecture.
 
 ## Credits
 
-Initially based based on [es6-features.org](http://es6-features.org/)
+Initially based on [es6-features.org](http://es6-features.org/)
 Some examples are copied from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## License
