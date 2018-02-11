@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Map/Set & WeakMap/WeakSet
 // =========================
 
-// Set Data-Structure
-// ------------------
+// #region Set data-structure
+// --------------------------
 
 // Cleaner data-structure for common algorithms based on sets.
 
@@ -42,8 +42,10 @@ es_old(function () {
 
 });
 
-// Map Data-Structure
-// ------------------
+// #endregion
+
+// #region Map data-structure
+// --------------------------
 
 // Cleaner data-structure for common algorithms based on maps.
 
@@ -70,5 +72,7 @@ es_old(function () {
 	// No equivalent in ES5
 
 });
+
+// #endregion
 
 console.log("OK");

@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
-// Internationalization & Localization
-// ===================================
+// Internationalization
+// ====================
 
-// Collation
-// ---------
+// #region Collation
+// -----------------
 
 // Sorting a set of strings and searching within a set of strings.
 // Collation is parameterized by locale and aware of Unicode.
@@ -22,8 +22,8 @@ es_new(function () {
 	assert(l10nDE.compare("ä", "z") === -1);
 	assert(l10nSV.compare("ä", "z") !== +1);
 
-	assert(JSON.stringify(list.sort(l10nDE.compare)) === `["a","ä","z"]`);
-	assert(JSON.stringify(list.sort(l10nSV.compare)) !== `["a","z","ä"]`);
+	assert(json(list.sort(l10nDE.compare)) === `["a","ä","z"]`);
+	assert(json(list.sort(l10nSV.compare)) !== `["a","z","ä"]`);
 
 });
 
@@ -33,8 +33,10 @@ es_old(function () {
 
 });
 
-// Number Formatting
-// -----------------
+// #endregion
+
+// #region Number formatting
+// -------------------------
 
 // Format numbers with digit grouping and localized separators.
 
@@ -54,8 +56,10 @@ es_old(function () {
 
 });
 
-// Currency Formatting
-// -------------------
+// #endregion
+
+// #region Currency formatting
+// ---------------------------
 
 // Format numbers with digit grouping, localized separators and attached currency symbol.
 
@@ -77,8 +81,10 @@ es_old(function () {
 
 });
 
-// Date/Time Formatting
-// --------------------
+// #endregion
+
+// #region Date/time formatting
+// ----------------------------
 
 // Format date/time with localized ordering and separators.
 
@@ -97,5 +103,7 @@ es_old(function () {
 	// No equivalent in ES5
 
 });
+
+// #endregion
 
 console.log("OK");

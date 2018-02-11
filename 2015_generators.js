@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Generators
 // ==========
 
-// Generator Function, Direct Use
-// ------------------------------
+// #region Direct use
+// ------------------
 
 // Support for generator functions, a special variant of functions where
 // the control flow can be paused and resumed, in order to produce sequence
@@ -30,7 +30,7 @@ es_new(function () {
 		results.push(item);
 	}
 
-	assert(JSON.stringify(results) === "[0,2,4,6,8]");
+	assert(json(results) === "[0,2,4,6,8]");
 
 });
 
@@ -62,12 +62,14 @@ es_old(function () {
 		results.push(result.value);
 	}
 
-	assert(JSON.stringify(results) === "[0,2,4,6,8]");
+	assert(json(results) === "[0,2,4,6,8]");
 
 });
 
-// Generator Function, Iterator Protocol
-// -------------------------------------
+// #endregion
+
+// #region Iterator protocol
+// -------------------------
 
 // Support for generators, a special case of Iterators containing a
 // generator function, where the control flow can be paused and resumed, in
@@ -88,7 +90,7 @@ es_new(function () {
 		results.push(item);
 	}
 
-	assert(JSON.stringify(results) === "[1,2,3]");
+	assert(json(results) === "[1,2,3]");
 
 });
 
@@ -98,10 +100,10 @@ es_old(function () {
 
 });
 
+// #endregion
 
-
-// Generator Matching
-// ------------------
+// #region Generator matching
+// --------------------------
 
 // Support for generator functions, i.e., functions where the control flow
 // can be paused and resumed, in order to produce and spread sequence of
@@ -117,14 +119,14 @@ es_new(function () {
 
 	var items = [...myIterable()];
 
-	assert(JSON.stringify(items) === "[1,2,3]");
+	assert(json(items) === "[1,2,3]");
 
 	var [i1, i2, i3, ...others] = myIterable();
 
 	assert(i1 === 1);
 	assert(i2 === 2);
 	assert(i3 === 3);
-	assert(JSON.stringify(others) === "[]");
+	assert(json(others) === "[]");
 
 });
 
@@ -133,5 +135,7 @@ es_old(function () {
 	// No equivalent in ES5
 
 });
+
+// #endregion
 
 console.log("OK");

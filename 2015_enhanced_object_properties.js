@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Enhanced Object Properties
 // ==========================
 
-// Property Shorthand
-// ------------------
+// #region Property shorthands
+// ---------------------------
 
 // Shorter syntax for common object property definition idiom.
 
@@ -32,8 +32,10 @@ es_old(function () {
 
 });
 
-// Computed Property Names
-// -----------------------
+// #endregion
+
+// #region Computed property names
+// -------------------------------
 
 // Support for computed names in object property definitions.
 
@@ -61,8 +63,10 @@ es_old(function () {
 
 });
 
-// Method Properties
-// -----------------
+// #endregion
+
+// #region Method properties
+// -------------------------
 
 // Support for method notation in object property definitions,
 // for both regular functions and generator functions.
@@ -90,5 +94,7 @@ es_old(function () {
 	assert(obj.sum(1, 2) === 3);
 
 });
+
+// #endregion
 
 console.log("OK");

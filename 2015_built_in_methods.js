@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // New Built-In Methods
 // ====================
 
-// Object Property Assignment
-// --------------------------
+// #region Object property assignment
+// ----------------------------------
 
 // New function for assigning enumerable properties of one or more source
 // objects onto a destination object.
@@ -46,8 +46,10 @@ es_old(function () {
 
 });
 
-// Array Element Finding
-// ---------------------
+// #endregion
+
+// #region Array element finding
+// -----------------------------
 
 // New function for finding an element in an array.
 
@@ -65,12 +67,14 @@ es_new(function () {
 
 es_old(function () {
 
-	// No equivalent in ES5
+	// Polyfill
 
 });
 
-// String Repeating
-// ----------------
+// #endregion
+
+// #region String repeating
+// ------------------------
 
 // New string repeating functionality.
 
@@ -90,8 +94,10 @@ es_old(function () {
 
 });
 
-// String Searching
-// ----------------
+// #endregion
+
+// #region String searching
+// ------------------------
 
 // New specific string functions to search for a sub-string.
 
@@ -115,8 +121,10 @@ es_old(function () {
 
 });
 
-// Number Type Checking
-// --------------------
+// #endregion
+
+// #region Number type checking
+// ----------------------------
 
 // New functions for checking for non-numbers and finite numbers.
 
@@ -151,8 +159,10 @@ es_old(function () {
 
 });
 
-// Number Safety Checking
-// ----------------------
+// #endregion
+
+// #region Number safety checking
+// ------------------------------
 
 // Checking whether an integer number is in the safe range, i.e., it is
 // correctly represented by JavaScript (where all numbers, including
@@ -181,8 +191,10 @@ es_old(function () {
 
 });
 
-// Number Comparison
-// -----------------
+// #endregion
+
+// #region Number comparison
+// -------------------------
 
 // Availability of a standard Epsilon value for more precise comparison of
 // floating point numbers.
@@ -201,8 +213,10 @@ es_old(function () {
 
 });
 
-// Number Truncation
-// -----------------
+// #endregion
+
+// #region Number truncation
+// -------------------------
 
 // Truncate a floating point number to its integral part,
 // completely dropping the fractional part.
@@ -227,8 +241,10 @@ es_old(function () {
 
 });
 
-// Number Sign Determination
-// -------------------------
+// #endregion
+
+// #region Number sign determination
+// ---------------------------------
 
 // Determine the sign of a number, including special cases of signed zero and non-number.
 
@@ -255,5 +271,7 @@ es_old(function () {
 	assert(isNaN(mathSign(NaN)));
 
 });
+
+// #endregion
 
 console.log("OK");

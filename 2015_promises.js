@@ -1,12 +1,9 @@
 "use strict";
 
-const { es_new, es_old, assert, simulate } = require("./libs/runners");
+const { es_new, es_old, assert, json, simulate } = require("./libs/runners");
 
 // Promises
 // ========
-
-// Promise Usage
-// -------------
 
 // First class representation of a value that may be made asynchronously and be available in the future.
 

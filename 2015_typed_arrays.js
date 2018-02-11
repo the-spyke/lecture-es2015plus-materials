@@ -1,12 +1,9 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Typed Arrays
 // ============
-
-// Typed Arrays
-// ------------
 
 // Support for arbitrary byte-based data structures to implement network
 // protocols, cryptography algorithms, file format manipulations, etc.

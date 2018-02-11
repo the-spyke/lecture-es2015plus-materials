@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
-// Modules
-// =======
+// ES Modules
+// ==========
 
-// Value Export/Import
-// -------------------
+// #region Named imports/exports
+// -----------------------------
 
 // Support for exporting/importing values from/to modules without global
 // namespace pollution.
@@ -56,8 +56,10 @@ es_old(function () {
 
 });
 
-// Default & Wildcard
-// ------------------
+// #endregion
+
+// #region Default imports/exports and imports of namespaces
+// ---------------------------------------------------------
 
 // Marking a value as the default exported value and mass-mixin of values.
 
@@ -102,5 +104,7 @@ es_old(function () {
 	});
 
 });
+
+// #endregion
 
 console.log("OK");

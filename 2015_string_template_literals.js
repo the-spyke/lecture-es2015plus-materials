@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Template Literals
 // =================
 
-// String Interpolation
-// --------------------
+// #region String interpolation
+// ----------------------------
 
 // Intuitive expression interpolation for single-line and multi-line strings.
 // (Notice: don't be confused, Template Literals were originally named
@@ -38,8 +38,10 @@ es_old(function () {
 
 });
 
-// Custom Interpolation
-// -----------------
+// #endregion
+
+// #region Custom interpolation
+// ----------------------------
 
 // Flexible expression interpolation for arbitrary methods.
 
@@ -71,8 +73,10 @@ es_old(function () {
 
 });
 
-// Raw String Access
-// -----------------
+// #endregion
+
+// #region Raw string access
+// -------------------------
 
 // Access the raw template string content (backslashes are not interpreted).
 
@@ -96,5 +100,7 @@ es_old(function () {
 	// No equivalent in ES5
 
 });
+
+// #endregion
 
 console.log("OK");

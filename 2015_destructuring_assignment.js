@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
-// Destructuring Assignment
+// Destructuring assignment
 // ========================
 
-// Array Matching
-// --------------
+// #region Array matching
+// ----------------------
 
 // Intuitive and flexible destructuring of Arrays into individual variables during assignment.
 
@@ -45,8 +45,10 @@ es_old(function () {
 
 });
 
-// Object Matching, Shorthand Notation
-// -----------------------------------
+// #endregion
+
+// #region Object matching
+// -----------------------
 
 // Intuitive and flexible destructuring of Objects into individual variables during assignment.
 
@@ -81,8 +83,10 @@ es_old(function () {
 
 });
 
-// Object Matching, Deep Matching
-// ------------------------------
+// #endregion
+
+// #region Deep matching
+// ---------------------
 
 // Intuitive and flexible destructuring of Objects into individual variables during assignment.
 
@@ -117,8 +121,10 @@ es_old(function () {
 
 });
 
-// Fail-Soft Destructuring
-// -----------------------
+// #endregion
+
+// #region Fail-soft destructuring
+// -------------------------------
 
 // Fail-soft destructuring, optionally with defaults.
 
@@ -148,8 +154,10 @@ es_old(function () {
 
 });
 
-// Default Values
-// -----------------------------------------
+// #endregion
+
+// #region Default values
+// ----------------------
 
 // Simple and intuitive default values for destructuring of Objects and Arrays.
 
@@ -189,8 +197,10 @@ es_old(function () {
 
 });
 
-// Parameter Context Matching
-// --------------------------
+// #endregion
+
+// #region Parameter context matching
+// ----------------------------------
 
 // Intuitive and flexible destructuring of Arrays and Objects into individual parameters during function calls.
 
@@ -235,5 +245,7 @@ es_old(function () {
 	g({ name: "bar", value: 42 });
 
 });
+
+// #endregion
 
 console.log("OK");

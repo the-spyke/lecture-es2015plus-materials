@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Symbol Type
 // ===========
 
-// Symbol Type
-// -----------
+// #region Symbol Type
+// -------------------
 
 // Unique and immutable data type to be used as an identifier for object properties.
 // Symbol can have an optional description, but for debugging purposes only.
@@ -25,10 +25,10 @@ es_new(function() {
 	obj[foo] = "foo";
 	obj[bar] = "bar";
 
-	assert(JSON.stringify(obj) === "{}");
-	assert(JSON.stringify(Object.keys(obj)) === "[]")
-	assert(JSON.stringify(Object.getOwnPropertyNames(obj)) === "[]");
-	// assert(JSON.stringify(Object.getOwnPropertySymbols(obj)) === "[foo, bar]"); // Doesn't work in Node
+	assert(json(obj) === "{}");
+	assert(json(Object.keys(obj)) === "[]")
+	assert(json(Object.getOwnPropertyNames(obj)) === "[]");
+	assert(json(Object.getOwnPropertySymbols(obj)) === "[null,null]");
 
 });
 
@@ -38,8 +38,10 @@ es_old(function() {
 
 });
 
-// Global Symbols
-// --------------
+// #endregion
+
+// #region Global Symbols
+// ----------------------
 
 // Global symbols, indexed through unique keys.
 
@@ -59,10 +61,10 @@ es_new(function() {
 	obj[foo] = "foo";
 	obj[bar] = "bar";
 	
-	assert(JSON.stringify(obj) === "{}");
-	assert(JSON.stringify(Object.keys(obj)) === "[]");
-	assert(JSON.stringify(Object.getOwnPropertyNames(obj)) ==="[]");
-	// assert(JSON.stringify(Object.getOwnPropertySymbols(obj)) === "[foo, bar]");
+	assert(json(obj) === "{}");
+	assert(json(Object.keys(obj)) === "[]");
+	assert(json(Object.getOwnPropertyNames(obj)) ==="[]");
+	assert(json(Object.getOwnPropertySymbols(obj)) === "[null,null]");
 
 });
 
@@ -71,5 +73,7 @@ es_old(function() {
 	// No equivalent in ES5
 
 });
+
+// #endregion
 
 console.log("OK");

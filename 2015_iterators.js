@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Iterators
 // =========
 
-// Iteration Protocol
-// ------------------
+// #region Iteration protocol
+// --------------------------
 
 es_new(function () {
 
@@ -38,8 +38,10 @@ es_old(function () {
 
 });
 
-// Iterator & For-Of Operator
-// --------------------------
+// #endregion
+
+// #region Iterator & for...of operator
+// ------------------------------------
 
 // Support "iterable" protocol to allow objects to customize their
 // iteration behaviour. Additionally, support "iterator" protocol to produce
@@ -71,7 +73,7 @@ es_new(function () {
 		results.push(item);
 	}
 
-	assert(JSON.stringify(results) === `["yo","ya"]`);
+	assert(json(results) === `["yo","ya"]`);
 
 });
 
@@ -80,5 +82,7 @@ es_old(function () {
 	// No equivalent in ES5
 
 });
+
+// #endregion
 
 console.log("OK");

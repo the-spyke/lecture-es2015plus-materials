@@ -1,11 +1,11 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Extended Parameter Handling
 // ===========================
 
-// Default Parameter Values
+// #region Default parameter values
 // ------------------------
 
 // Simple and intuitive default values for function parameters.
@@ -37,8 +37,10 @@ es_old(function() {
 
 });
 
-// Rest Parameter
-// --------------
+// #endregion
+
+// #region Rest parameter
+// ----------------------
 
 // Aggregation of remaining arguments into single parameter of variadic functions.
 
@@ -64,8 +66,10 @@ es_old(function() {
 
 });
 
-// Spread Operator
-// ---------------
+// #endregion
+
+// #region Spread operator
+// -----------------------
 
 // Spreading of elements of an iterable collection (like an array or even
 // a string) into both literal elements and individual function parameters.
@@ -75,7 +79,7 @@ es_new(function() {
 	var params = [3, 4, 5];
 	var other = [1, 2, ...params];
 
-	assert(JSON.stringify(other) === `[1,2,3,4,5]`);
+	assert(json(other) === `[1,2,3,4,5]`);
 
 	function f(a, b, c, d, e) {
 		return a + b + c + d + e;
@@ -86,7 +90,7 @@ es_new(function() {
 	var str = "foo";
 	var chars = [...str];
 
-	assert(JSON.stringify(chars) === `["f","o","o"]`); 
+	assert(json(chars) === `["f","o","o"]`); 
 
 });
 
@@ -95,7 +99,7 @@ es_old(function() {
 	var params = [3, 4, 5];
 	var other = [1, 2].concat(params);
 
-	assert(JSON.stringify(other) === `[1,2,3,4,5]`);
+	assert(json(other) === `[1,2,3,4,5]`);
 
 	function f(a, b, c, d, e) {
 		return a + b + c + d + e;
@@ -106,8 +110,10 @@ es_old(function() {
 	var str = "foo";
 	var chars = str.split("");
 
-	assert(JSON.stringify(chars) === `["f","o","o"]`); 
+	assert(json(chars) === `["f","o","o"]`); 
 
 });
+
+// #endregion
 
 console.log("OK");

@@ -26,6 +26,10 @@ exports.assert = function (result) {
 	}
 };
 
+exports.json = function (value) {
+	return JSON.stringify(value);
+};
+
 exports.simulate = function () {
 	return new Promise(function (resolve) {
 		setTimeout(function () {

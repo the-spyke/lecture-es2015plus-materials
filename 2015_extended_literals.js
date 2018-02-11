@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Extended Literals
 // =================
 
-// Binary & Octal Literal
-// ----------------------
+// #region Binary & octal literals
+// -------------------------------
 
 // Direct support for safe binary and octal literals.
 
@@ -25,8 +25,10 @@ es_old(function() {
 
 });
 
-// Unicode String & RegExp Literal
-// -------------------------------
+// #endregion
+
+// #region Unicode strings & RegExp literals
+// -----------------------------------------
 
 // Extended support using Unicode within strings and regular expressions.
 
@@ -58,5 +60,7 @@ es_old(function() {
 	// No equivalent in ES5
 
 });
+
+// #endregion
 
 console.log("OK");

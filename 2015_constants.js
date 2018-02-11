@@ -1,9 +1,9 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Constants
-// ---------
+// =========
 
 // Support for constants (also known as "immutable variables"), i.e.,
 // variables which cannot be re-assigned new content. Notice: this only
@@ -15,15 +15,14 @@ es_new(function () {
 
 	const PI = 3.141593;
 
-	var error;
-
 	try {
 		PI = 4; // TypeError: Assignment to constant variable.
-	} catch (e) {
-		error = e;
+	} catch (error) {
+		assert(error);
+		return;
 	}
 
-	assert(error);
+	assert(false);
 
 });
 
@@ -42,15 +41,14 @@ es_old(function () {
 		}
 	);
 
-	var error;
-
 	try {
 		PI = 4; // TypeError: Cannot assign to read only property 
-	} catch (e) {
-		error = e;
+	} catch (error) {
+		assert(error);
+		return;
 	}
 
-	assert(error);
+	assert(false);
 
 });
 

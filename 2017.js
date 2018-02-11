@@ -1,12 +1,32 @@
 "use strict";
 
-const { es_new, es_old, assert, simulate } = require("./libs/runners");
+const { es_new, es_old, assert, json, simulate } = require("./libs/runners");
 
 // ES2017
 // ======
 
-// Object.values() and Object.entries()
-// ---------------
+// #region String padding
+// ----------------------
+
+es_new(function () {
+
+	assert('abc'.padStart(10)        === "       abc");
+	assert('abc'.padStart(10, "foo") === "foofoofabc");
+	assert('abc'.padStart(8, "0")    === "00000abc");
+	assert('abc'.padStart(1)         === "abc");
+
+});
+
+es_old(function () {
+
+	// Polyfill
+
+});
+
+// #endregion
+
+// #region Object.values() and Object.entries()
+// --------------------------------------------
 
 es_new(function () {
 
@@ -14,11 +34,11 @@ es_new(function () {
 
 	var values = Object.values(obj);
 
-	assert(JSON.stringify(values) === `["bar",42]`);
+	assert(json(values) === `["bar",42]`);
 
 	var entries = Object.entries(obj);
 
-	assert(JSON.stringify(entries) === `[["foo","bar"],["baz",42]]`);
+	assert(json(entries) === `[["foo","bar"],["baz",42]]`);
 
 });
 
@@ -33,7 +53,7 @@ es_old(function () {
 		}
 	}
 
-	assert(JSON.stringify(values) === `["bar",42]`);
+	assert(json(values) === `["bar",42]`);
 
 	var entries = [];
 	for (var key in obj) {
@@ -42,30 +62,14 @@ es_old(function () {
 		}
 	}
 
-	assert(JSON.stringify(entries) === `[["foo","bar"],["baz",42]]`);
+	assert(json(entries) === `[["foo","bar"],["baz",42]]`);
 
 });
 
-// String padding
-// ----------------
+// #endregion
 
-es_new(function () {
-
-	assert('abc'.padStart(10) === "       abc");
-	assert('abc'.padStart(10, "foo") === "foofoofabc");
-	assert('abc'.padStart(8, "0") === "00000abc");
-	assert('abc'.padStart(1) === "abc");
-
-});
-
-es_old(function () {
-
-	// Polyfill
-
-});
-
-// Object.getOwnPropertyDescriptors()
-// ----------------
+// #region Object.getOwnPropertyDescriptors()
+// ------------------------------------------
 
 es_new(function () {
 
@@ -88,7 +92,7 @@ es_new(function () {
 
 	var descriptors = Object.getOwnPropertyDescriptors(obj);
 
-	assert(JSON.stringify(descriptors) === `{"normal":{"value":null,"writable":true,"enumerable":true,"configurable":true},"enumerable":{"value":true,"writable":false,"enumerable":false,"configurable":true},"writable":{"value":42,"writable":true,"enumerable":true,"configurable":true}}`);
+	assert(json(descriptors) === `{"normal":{"value":null,"writable":true,"enumerable":true,"configurable":true},"enumerable":{"value":true,"writable":false,"enumerable":false,"configurable":true},"writable":{"value":42,"writable":true,"enumerable":true,"configurable":true}}`);
 
 	// Whereas the Object.assign() method will only copy enumerable 
 	// and own properties from a source object to a target object, 
@@ -107,8 +111,10 @@ es_old(function () {
 
 });
 
-// Trailing commas in function parameter lists and calls
-// ----------------
+// #endregion
+
+// #region Trailing commas in function parameter lists and calls
+// -------------------------------------------------------------
 
 es_new(function () {
 
@@ -142,8 +148,10 @@ es_old(function () {
 
 });
 
-// Async functions
-// ----------------
+// #endregion
+
+// #region Async functions
+// -----------------------
 
 es_new(async function () {
 
@@ -178,19 +186,13 @@ es_old(function () {
 
 });
 
-// Shared memory and atomics
+// #endregion
+
+// #region Shared memory and atomics
 // ----------------
 
-es_new(function () {
+/* TODO */
 
-	// TODO
-
-});
-
-es_old(function () {
-
-	// No equivalent in ES2016
-
-});
+// #endregion
 
 console.log("OK");

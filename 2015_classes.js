@@ -1,12 +1,12 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
 // Classes
 // =======
 
-// Class Definition
-// ----------------
+// #region Class definition
+// ------------------------
 
 // More intuitive, OOP-style and boilerplate-free classes.
 
@@ -52,8 +52,10 @@ es_old(function () {
 
 });
 
-// Class Inheritance
-// -----------------
+// #endregion
+
+// #region Class inheritance
+// -------------------------
 
 // More intuitive, OOP-style and boilerplate-free inheritance.
 
@@ -112,8 +114,10 @@ es_old(function () {
 
 });
 
-// Base Class Access
-// -----------------
+// #endregion
+
+// #region Base class access
+// -------------------------
 
 // Intuitive access to base class constructor and methods.
 
@@ -186,8 +190,10 @@ es_old(function () {
 
 });
 
-// Static Members
-// --------------
+// #endregion
+
+// #region Static members
+// ----------------------
 
 // Simple support for static class members.
 
@@ -259,8 +265,10 @@ es_old(function () {
 
 });
 
-// Getter/Setter
-// -------------
+// #endregion
+
+// #region Getters and setters
+// ---------------------------
 
 // Getter/Setter also directly within classes (and not just within object
 // initializers, as it is possible since ECMAScript 5.1).
@@ -302,5 +310,7 @@ es_old(function () {
 	assert(circle.area === Math.PI);
 
 });
+
+// #endregion
 
 console.log("OK");

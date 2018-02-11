@@ -1,25 +1,23 @@
 "use strict";
 
-const { es_new, es_old, assert } = require("./libs/runners");
+const { es_new, es_old, assert, json } = require("./libs/runners");
 
-// ES2017
+// ES2016
 // ======
 
 // Super tiny. Only two features!
 
-// Array.prototype.includes
-// ------------------------
+// #region Array.prototype.includes()
+// ----------------------------------
 
 es_new(function () {
 
 	var array = [1, 2, 3];
 	var element = 2;
 
-	if (array.includes(element)) {
-		return;
+	if (!array.includes(element)) {
+		assert(false);
 	}
-
-	assert(false);
 
 });
 
@@ -28,15 +26,16 @@ es_old(function () {
 	var array = [1, 2, 3];
 	var element = 2;
 
-	if (array.indexOf(element) !== -1) {
-		return;
+	if (array.indexOf(element) === -1) {
+		assert(false);
 	}
 
-	assert(false);
 });
 
-// Exponentiation Operator
-// -----------------------
+// #endregion
+
+// #region Exponentiation Operator
+// -------------------------------
 
 es_new(function () {
 
@@ -64,5 +63,7 @@ es_old(function () {
 
 	assert(x === 27);
 });
+
+// #endregion
 
 console.log("OK");
