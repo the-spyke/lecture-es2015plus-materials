@@ -40,10 +40,12 @@ Materials for the lecture.
 
 ### ES2017
 
+### ES2018 (Work in progress)
+
 ## Credits
 
 Initially based on [es6-features.org](http://es6-features.org/)
-Some examples are copied from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+Some examples are copied from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [TC39 Proposals](https://github.com/tc39/proposals)
 
 ## License
 

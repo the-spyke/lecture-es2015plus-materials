@@ -10,10 +10,10 @@ const { es_new, es_old, assert, json } = require("./libs/runners");
 // #region Array.prototype.includes()
 // ----------------------------------
 
-es_new(function () {
+es_new(() => {
 
-	var array = [1, 2, 3];
-	var element = 2;
+	const array = [1, 2, 3];
+	const element = 2;
 
 	if (!array.includes(element)) {
 		assert(false);
@@ -21,10 +21,10 @@ es_new(function () {
 
 });
 
-es_old(function () {
+es_old(() => {
 
-	var array = [1, 2, 3];
-	var element = 2;
+	const array = [1, 2, 3];
+	const element = 2;
 
 	if (array.indexOf(element) === -1) {
 		assert(false);
@@ -37,13 +37,13 @@ es_old(function () {
 // #region Exponentiation Operator
 // -------------------------------
 
-es_new(function () {
+es_new(() => {
 
-	var cubed = 2 ** 3;
+	const cubed = 2 ** 3;
 
 	assert(cubed === 8);
 
-	var x = 3;
+	const x = 3;
 
 	x **= 3;
 
@@ -51,13 +51,13 @@ es_new(function () {
 
 });
 
-es_old(function () {
+es_old(() => {
 
-	var cubed = Math.pow(2, 3);
+	const cubed = Math.pow(2, 3);
 
 	assert(cubed === 8);
 
-	var x = 3;
+	const x = 3;
 
 	x = x ** 3;
 

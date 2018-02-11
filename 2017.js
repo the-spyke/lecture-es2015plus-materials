@@ -8,7 +8,7 @@ const { es_new, es_old, assert, json, simulate } = require("./libs/runners");
 // #region String padding
 // ----------------------
 
-es_new(function () {
+es_new(() => {
 
 	assert('abc'.padStart(10)        === "       abc");
 	assert('abc'.padStart(10, "foo") === "foofoofabc");
@@ -17,7 +17,7 @@ es_new(function () {
 
 });
 
-es_old(function () {
+es_old(() => {
 
 	// Polyfill
 
@@ -28,26 +28,26 @@ es_old(function () {
 // #region Object.values() and Object.entries()
 // --------------------------------------------
 
-es_new(function () {
+es_new(() => {
 
-	var obj = { foo: "bar", baz: 42 };
+	const obj = { foo: "bar", baz: 42 };
 
-	var values = Object.values(obj);
+	const values = Object.values(obj);
 
 	assert(json(values) === `["bar",42]`);
 
-	var entries = Object.entries(obj);
+	const entries = Object.entries(obj);
 
 	assert(json(entries) === `[["foo","bar"],["baz",42]]`);
 
 });
 
-es_old(function () {
+es_old(() => {
 
-	var obj = { foo: "bar", baz: 42 };
+	const obj = { foo: "bar", baz: 42 };
 
-	var values = [];
-	for (var key in obj) {
+	const values = [];
+	for (const key in obj) {
 		if (obj.hasOwnProperty(key)) {
 			values.push(obj[key]);
 		}
@@ -55,8 +55,8 @@ es_old(function () {
 
 	assert(json(values) === `["bar",42]`);
 
-	var entries = [];
-	for (var key in obj) {
+	const entries = [];
+	for (const key in obj) {
 		if (obj.hasOwnProperty(key)) {
 			entries.push([key, obj[key]]);
 		}
@@ -71,16 +71,16 @@ es_old(function () {
 // #region Object.getOwnPropertyDescriptors()
 // ------------------------------------------
 
-es_new(function () {
+es_new(() => {
 
-	var obj = { normal: Infinity };
-	var enumDescriptor = {
+	const obj = { normal: Infinity };
+	const enumDescriptor = {
 		enumerable: false,
 		writable: false,
 		configurable: true,
 		value: true
 	};
-	var writableDescriptor = {
+	const writableDescriptor = {
 		enumerable: true,
 		writable: true,
 		configurable: true,
@@ -90,7 +90,7 @@ es_new(function () {
 	Object.defineProperty(obj, 'enumerable', enumDescriptor);
 	Object.defineProperty(obj, 'writable', writableDescriptor);
 
-	var descriptors = Object.getOwnPropertyDescriptors(obj);
+	const descriptors = Object.getOwnPropertyDescriptors(obj);
 
 	assert(json(descriptors) === `{"normal":{"value":null,"writable":true,"enumerable":true,"configurable":true},"enumerable":{"value":true,"writable":false,"enumerable":false,"configurable":true},"writable":{"value":42,"writable":true,"enumerable":true,"configurable":true}}`);
 
@@ -98,14 +98,14 @@ es_new(function () {
 	// and own properties from a source object to a target object, 
 	// you are able to use this method and Object.create() for a 
 	// shallow copy between two unknown objects:
-	var copy = Object.create(
+	const copy = Object.create(
 		Object.getPrototypeOf(obj),
 		Object.getOwnPropertyDescriptors(obj)
 	);
 
 });
 
-es_old(function () {
+es_old(() => {
 
 	// Polyfill
 
@@ -116,9 +116,9 @@ es_old(function () {
 // #region Trailing commas in function parameter lists and calls
 // -------------------------------------------------------------
 
-es_new(function () {
+es_new(() => {
 
-	var obj = {
+	const obj = {
 		x: 1,
 		y: 2,
 	};
@@ -133,7 +133,7 @@ es_new(function () {
 		return x + y;
 	}
 
-	var result = sum(
+	const result = sum(
 		1,
 		2,
 	);
@@ -142,9 +142,9 @@ es_new(function () {
 
 });
 
-es_old(function () {
+es_old(() => {
 
-	// No equivalent in ES2016
+	// No equivalent
 
 });
 
@@ -153,34 +153,37 @@ es_old(function () {
 // #region Async functions
 // -----------------------
 
-es_new(async function () {
+es_new(async () => {
 
 	async function getUserNameById(userId) {
 		return simulate().then(() => Promise.resolve("Bob"));
 	}
 
 	try {
-		var username = await getUserNameById(123);
+		const username = await getUserNameById(123);
+
+		console.log("Done");
+
+		assert(username === "Bob");
 	} catch (error) {
 		console.error(error);
 	}
 
-	assert(username === "Bob");
-
 });
 
-es_old(function () {
+es_old(() => {
 
 	function getUserNameById(userId) {
 		return simulate().then(() => "Bob");
 	}
 
 	getUserNameById(123)
-		.then(function (username) {
-			console.log("In then");
+		.then(username => {
+			console.log("Done");
+
 			assert(username === "Bob");
 		})
-		.catch(function (error) {
+		.catch(error => {
 			console.error(error);
 		});
 
@@ -189,7 +192,7 @@ es_old(function () {
 // #endregion
 
 // #region Shared memory and atomics
-// ----------------
+// ---------------------------------
 
 /* TODO */
 

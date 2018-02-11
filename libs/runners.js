@@ -26,6 +26,16 @@ exports.assert = function (result) {
 	}
 };
 
+exports.assertThrow = function (action) {
+	try {
+		action();
+	} catch (e) {
+		return;
+	}
+
+	throw new Error("Assetion failed!");
+};
+
 exports.json = function (value) {
 	return JSON.stringify(value);
 };
