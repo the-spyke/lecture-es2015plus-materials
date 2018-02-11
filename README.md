@@ -1,6 +1,6 @@
 # An introduction into ECMAScript 2015+
 
-Materials for the lecture.
+Step-by-step examples for learning ES2015 and beyond.
 
 ## Requirements
 
@@ -45,6 +45,7 @@ Materials for the lecture.
 ## Credits
 
 Initially based on [es6-features.org](http://es6-features.org/)
+
 Some examples are copied from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [TC39 Proposals](https://github.com/tc39/proposals)
 
 ## License
