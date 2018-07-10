@@ -1,6 +1,6 @@
 "use strict";
 
-const { es_new, es_old, assert, json } = require("./libs/runners");
+const { es_new, es_old, success, assert, json } = require("./libs/runners");
 
 // Extended Literals
 // =================
@@ -63,4 +63,4 @@ es_old(function() {
 
 // #endregion
 
-console.log("OK");
+success();

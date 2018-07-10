@@ -1,6 +1,6 @@
 "use strict";
 
-const { es_new, es_old, assert, json, simulate } = require("./libs/runners");
+const { es_new, es_old, success, assert, json, simulate } = require("./libs/runners");
 
 // Promises
 // ========
@@ -42,4 +42,4 @@ es_old(function () {
 
 });
 
-console.log("OK");
+success();

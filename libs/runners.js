@@ -40,10 +40,10 @@ exports.json = function (value) {
 	return JSON.stringify(value);
 };
 
-exports.simulate = function () {
-	return new Promise(function (resolve) {
-		setTimeout(function () {
-			resolve();
-		}, 1000);
-	});
+exports.success = function () {
+	console.log("⭐⭐⭐ SUCCESS ⭐⭐⭐");
+}
+
+exports.fail = function () {
+	throw new Error("Fail!");
 };

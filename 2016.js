@@ -1,6 +1,6 @@
 "use strict";
 
-const { es_new, es_old, assert, json } = require("./libs/runners");
+const { es_new, es_old, success, fail, assert } = require("./libs/runners");
 
 // ES2016
 // ======
@@ -16,7 +16,7 @@ es_new(() => {
 	const element = 2;
 
 	if (!array.includes(element)) {
-		assert(false);
+		fail();
 	}
 
 });
@@ -27,7 +27,7 @@ es_old(() => {
 	const element = 2;
 
 	if (array.indexOf(element) === -1) {
-		assert(false);
+		fail();
 	}
 
 });
@@ -66,4 +66,4 @@ es_old(() => {
 
 // #endregion
 
-console.log("OK");
+success();

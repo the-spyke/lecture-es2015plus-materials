@@ -4,43 +4,45 @@ Step-by-step examples for learning ES2015 and beyond.
 
 ## Requirements
 
-* Node &ge; 9.5.0
-* `[optional]` Visual Studio Code &ge; 1.14
+* Node &ge; 10.6.0
+* `[optional]` Visual Studio Code &ge; 1.25
 
 ## Instructions
 
-* Just run a file in console with `Node`
-* To debug with `VSCode` set a brakepoint and press `Start Debugging`
+* Just run a file in console with `Node`.
+* To debug with `VSCode` set a brakepoint and click `Start Debugging` or press `F5`.
 
 ## Suggested learning order
 
 ### ES2015
 
-1. Block scoping
-2. Constants
-3. String template literals
-4. Arrow functions
-5. Enhanced object properties
-6. Extended parameter handling
-7. Destructuring assignment
-8. Iterators
-9. Generators
-10. Collections
-11. Classes
-12. Promises
-13. Symbol type
-14. Extended literals
-15. Built-in methods
-16. Internationalization
-17. Metaprogramming
-18. Typed arrays
-19. Modules
+* Block scoping
+* Constants
+* String template literals
+* Arrow functions
+* Enhanced object properties
+* Extended parameter handling
+* Destructuring assignment
+* Modules
+* Iterators
+* Generators
+* Collections
+* Classes
+* Promises
+* Symbol type
+* Extended literals
+* Built-in methods
+* Internationalization
+* Metaprogramming
+* Typed arrays
 
 ### ES2016
 
 ### ES2017
 
-### ES2018 (Work in progress)
+### ES2018
+
+### ES2019 (Work in progress)
 
 ## Credits
 

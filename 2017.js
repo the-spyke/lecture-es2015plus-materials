@@ -1,6 +1,7 @@
 "use strict";
 
-const { es_new, es_old, assert, json, simulate } = require("./libs/runners");
+const { es_new, es_old, success, assert, json } = require("./libs/runners");
+const { getAsyncValue } = require("./libs/utils");
 
 // ES2017
 // ======
@@ -10,10 +11,10 @@ const { es_new, es_old, assert, json, simulate } = require("./libs/runners");
 
 es_new(() => {
 
-	assert('abc'.padStart(10)        === "       abc");
-	assert('abc'.padStart(10, "foo") === "foofoofabc");
-	assert('abc'.padStart(8, "0")    === "00000abc");
-	assert('abc'.padStart(1)         === "abc");
+	assert(`abc`.padStart(10)        === `       abc`);
+	assert(`abc`.padStart(10, `foo`) === `foofoofabc`);
+	assert(`abc`.padStart(8, `0`)    === `00000abc`);
+	assert(`abc`.padStart(1)         === `abc`);
 
 });
 
@@ -30,7 +31,7 @@ es_old(() => {
 
 es_new(() => {
 
-	const obj = { foo: "bar", baz: 42 };
+	const obj = { foo: `bar`, baz: 42 };
 
 	const values = Object.values(obj);
 
@@ -44,7 +45,7 @@ es_new(() => {
 
 es_old(() => {
 
-	const obj = { foo: "bar", baz: 42 };
+	const obj = { foo: `bar`, baz: 42 };
 
 	const values = [];
 	for (const key in obj) {
@@ -87,8 +88,8 @@ es_new(() => {
 		value: 42
 	};
 
-	Object.defineProperty(obj, 'enumerable', enumDescriptor);
-	Object.defineProperty(obj, 'writable', writableDescriptor);
+	Object.defineProperty(obj, `enumerable`, enumDescriptor);
+	Object.defineProperty(obj, `writable`, writableDescriptor);
 
 	const descriptors = Object.getOwnPropertyDescriptors(obj);
 
@@ -156,15 +157,15 @@ es_old(() => {
 es_new(async () => {
 
 	async function getUserNameById(userId) {
-		return simulate().then(() => Promise.resolve("Bob"));
+		return getAsyncValue(`Bob`);
 	}
 
 	try {
 		const username = await getUserNameById(123);
 
-		console.log("Done");
+		console.log(`Done`);
 
-		assert(username === "Bob");
+		assert(username === `Bob`);
 	} catch (error) {
 		console.error(error);
 	}
@@ -174,14 +175,14 @@ es_new(async () => {
 es_old(() => {
 
 	function getUserNameById(userId) {
-		return simulate().then(() => "Bob");
+		return getAsyncValue(`Bob`);
 	}
 
 	getUserNameById(123)
 		.then(username => {
-			console.log("Done");
+			console.log(`Done`);
 
-			assert(username === "Bob");
+			assert(username === `Bob`);
 		})
 		.catch(error => {
 			console.error(error);
@@ -198,4 +199,4 @@ es_old(() => {
 
 // #endregion
 
-console.log("OK");
+success();

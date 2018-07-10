@@ -1,6 +1,6 @@
 "use strict";
 
-const { es_new, es_old, assert, json } = require("./libs/runners");
+const { es_new, es_old, success, assert, json } = require("./libs/runners");
 
 // Typed Arrays
 // ============
@@ -33,4 +33,4 @@ es_old(function() {
 
 });
 
-console.log("OK");
+success();

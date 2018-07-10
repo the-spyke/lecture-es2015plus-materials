@@ -1,6 +1,6 @@
 "use strict";
 
-const { es_new, es_old, assert, json } = require("./libs/runners");
+const { es_new, es_old, success, assert, fail } = require("./libs/runners");
 
 // Block-scoped variables and functions
 // ====================================
@@ -21,11 +21,11 @@ es_new(function () {
 	try {
 		i = 1; // ReferenceError: i is not defined
 		x = 1; // ReferenceError: x is not defined
-	} catch (e) {
-		error = e;
-	}
 
-	assert(error);
+		fail();
+	} catch (error) {
+		assert(error instanceof ReferenceError);
+	}
 
 });
 
@@ -114,4 +114,4 @@ es_old(function () {
 
 // #endregion
 
-console.log("OK");
+success();
