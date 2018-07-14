@@ -18,21 +18,21 @@ Step-by-step examples for learning ES2015 and beyond.
 
 * Block scoping
 * Constants
+* Enhanced object properties
+* Classes
+* Collections
+* Symbol type
 * String template literals
 * Arrow functions
-* Enhanced object properties
 * Extended parameter handling
 * Destructuring assignment
-* Modules
-* Iterators
-* Generators
-* Collections
-* Classes
-* Promises
-* Symbol type
 * Extended literals
 * Built-in methods
 * Internationalization
+* Modules
+* Iterators
+* Promises
+* Generators
 * Metaprogramming
 * Typed arrays
 

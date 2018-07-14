@@ -195,7 +195,7 @@ es_old(() => {
 // #region Shared memory and atomics
 // ---------------------------------
 
-/* TODO */
+/* Excluded */
 
 // #endregion
 
